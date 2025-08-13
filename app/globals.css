@@ -1,16 +1,14 @@
-@import 'tailwindcss'
-
-/* @import "tailwindcss";
+@import "tailwindcss";
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
-
 
 .work-sans {
   font-family: var(--font-work-sans, sans-serif);
@@ -20,7 +18,14 @@ html {
   font-family: var(--font-space-mono, monospace);
 }
 
-.transition-ease{
-  transition: 0.3ms ease-in-out all;
-} */
+.transition-ease {
+  transition: 0.3s ease-in-out all;
+}
 
+.index-low {
+  z-index: 1;
+}
+
+.index-finite {
+  z-index: 999 !important;
+}
