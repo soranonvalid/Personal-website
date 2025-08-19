@@ -9,13 +9,18 @@ export default function SideBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [delayedClass, setDelayedClass] = useState("");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 800) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 800) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     let timeout;
@@ -35,6 +40,7 @@ export default function SideBar() {
 
     return () => clearTimeout(timeout);
   }, [isOpen]);
+
   return (
     <div className={`fixed h-fit lg:h-screen ${delayedClass}`}>
       <nav
